@@ -59,7 +59,7 @@ nism.
 PLEASE MAKE SURE THAT THIS IS THE ONLY USB DISK ATTACHED.
 THE DISK WILL BE FORMATTED!
 
-~~bash
+~~~bash
 target=/dev/sda
 dd if=/dev/zero of=$target bs=1M count=10
 parted --align optimal --script $target mklabel msdos
