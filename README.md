@@ -68,10 +68,10 @@ parted --align optimal --script $target mkpart primary 1024MiB 5120MiB
 parted --align optimal --script $target mkpart primary 5120MiB 9216MiB
 parted --align optimal --script $target mkpart primary 9216MiB 100%
 parted $target print
-mkfs.ext4 -F -L STAGING -m 0 /dev/sda1
-mkfs.ext4 -F -L ROOTA -m 0 /dev/sda2
-mkfs.ext4 -F -L ROOTB -m 0 /dev/sda3
-mkfs.ext4 -F -L DATA -m 0 /dev/sda4
+mkfs.ext4 -F -L STAGING -m 0 ${target}1
+mkfs.ext4 -F -L ROOTA -m 0 ${target}2
+mkfs.ext4 -F -L ROOTB -m 0 ${target}3
+mkfs.ext4 -F -L DATA -m 0 ${target}4
 test -d /media/staging || mkdir -p /media/staging
 mount --label STAGING /media/staging/
 cd /media/staging
