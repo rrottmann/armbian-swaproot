@@ -1,0 +1,9 @@
+#!/bin/bash
+echo "Storing a backup of the currently booted root filesystem."
+test -d /media/staging || mkdir -p /media/staging
+mount --label STAGING /media/staging/
+cd /media/staging
+which dump || apt-get install -y dump
+dump -j9 -0af /media/staging/root.dump /
+sync
+umount /media/staging

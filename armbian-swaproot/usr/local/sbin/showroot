@@ -1,0 +1,4 @@
+#!/bin/bash
+rootdev=`egrep -o "^\/\S+\s+\/\s+.*$" /proc/mounts | cut -d ' ' -f1`
+bootdev=`lsblk --output label $rootdev --noheadings`
+echo $bootdev

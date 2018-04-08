@@ -1,0 +1,15 @@
+#!/bin/bash
+test -d /media/staging || mkdir -p /media/staging
+mount --label STAGING /media/staging/
+rootdev=`egrep -o "^\/\S+\s+\/\s+.*$" /proc/mounts | cut -d ' ' -f1`
+bootdev=`lsblk --output label $rootdev --noheadings`
+if [ $bootdev == "ROOTA" ]; then bootnew=ROOTB; else bootnew=ROOTA; fi
+echo "Restoring stored root filesystem to $bootnew"
+d=`mktemp -d`
+mkdir -p $d
+mount --label $bootnew $d
+cd $d
+restore -rf /media/staging/root.dump
+cd -
+umount $d
+rmdir $d

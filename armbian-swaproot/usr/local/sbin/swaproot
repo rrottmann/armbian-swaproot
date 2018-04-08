@@ -1,0 +1,11 @@
+#!/bin/bash
+bootldr=/dev/mmcblk0p1
+rootdev=`egrep -o "^\/\S+\s+\/\s+.*$" /proc/mounts | cut -d ' ' -f1`
+bootdev=`lsblk --output label $rootdev --noheadings`
+if [ $bootdev == "ROOTA" ]; then bootnew=ROOTB; else bootnew=ROOTA; fi
+echo "Switching to $bootnew"
+test -d /media/bootloader || mkdir -p /media/bootloader
+mount $bootldr /media/bootloader
+sed -i "s/^rootdev=.*/rootdev=LABEL=$bootnew/g" /media/bootloader/boot/armbianEnv.txt
+sync
+reboot
