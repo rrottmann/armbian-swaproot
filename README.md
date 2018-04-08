@@ -1,35 +1,16 @@
 # Armbian Swaproot
 
-I like Armbian very much and use it often as small test box for tinkering with L
-inux.
-As I use my single board computers headless, I do not want to swap sdcards and r
-eflash images.
+I like Armbian very much and use it often as small test box for tinkering with
+Linux.
+As I use my single board computers headless, I do not want to swap sdcards and
+reflash images.
 
-Therefore I wrote small scripts that swap root filesystems that reside on an ext
-ra usb flash drive.
+Therefore I wrote small scripts that swap root filesystems that reside on an
+extra usb flash drive.
 
 ## License
 
 These scripts are released under the MIT License.
-
-Copyright 2018 Reiner Rottmann
-
-Permission is hereby granted, free of charge, to any person obtaining a copy of 
-this software and associated documentation files (the "Software"), to deal in th
-e Software without restriction, including without limitation the rights to use, 
-copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the 
-Software, and to permit persons to whom the Software is furnished to do so, subj
-ect to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all c
-opies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
-ED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR 
-A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYR
-IGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN 
-ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WIT
-H THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 ## Maturity and Caveats
 
@@ -75,8 +56,8 @@ data partition.
 The following script prepares an attached USB flash drive for the swaproot mecha
 nism.
 
-PLEASE MAKE SURE THAT THIS IS THE ONLY USB DISK ATTACHED. DISK WILL BE FORMATTED
-!
+PLEASE MAKE SURE THAT THIS IS THE ONLY USB DISK ATTACHED.
+THE DISK WILL BE FORMATTED!
 
 ~~bash
 target=/dev/sda
@@ -127,5 +108,5 @@ Alternates the active root device between ROOTA and ROOTB labeled filesystems.
 
 ### restoreroot
 
-Restores the current backup of the root filesystem on the alternate root partiti
-on.
+Restores the current backup of the root filesystem on the alternate root
+partition.
