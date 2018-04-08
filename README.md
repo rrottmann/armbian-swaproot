@@ -53,8 +53,8 @@ data partition.
 
 ## Prepare USB flash drive
 
-The following script prepares an attached USB flash drive for the swaproot mecha
-nism.
+The following script prepares an attached USB flash drive for the swaproot
+mechanism.
 
 PLEASE MAKE SURE THAT THIS IS THE ONLY USB DISK ATTACHED.
 THE DISK WILL BE FORMATTED!
